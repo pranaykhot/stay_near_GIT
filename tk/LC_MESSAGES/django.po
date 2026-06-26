@@ -1,17 +1,16 @@
 # This file is distributed under the same license as the Django package.
 #
 # Translators:
-# Mariusz Felisiak <felisiak.mariusz@gmail.com>, 2020-2021
 # Resul <resulsaparov@gmail.com>, 2020
-# Resul <resulsaparov@gmail.com>, 2022-2024
+# Resul <resulsaparov@gmail.com>, 2022-2023
 # Welbeck Garli <welbeckgrlyw@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: django\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-22 11:46-0300\n"
-"PO-Revision-Date: 2024-08-07 06:49+0000\n"
-"Last-Translator: Resul <resulsaparov@gmail.com>, 2022-2024\n"
+"POT-Creation-Date: 2023-03-17 03:19-0500\n"
+"PO-Revision-Date: 2023-12-04 08:09+0000\n"
+"Last-Translator: Resul <resulsaparov@gmail.com>, 2022-2023\n"
 "Language-Team: Turkmen (http://app.transifex.com/django/django/language/"
 "tk/)\n"
 "MIME-Version: 1.0\n"
@@ -20,1318 +19,289 @@ msgstr ""
 "Language: tk\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Afrikaans"
-msgstr "Afrikaans"
+msgid "Personal info"
+msgstr "Şahsy maglumat"
 
-msgid "Arabic"
-msgstr "Arapça"
+msgid "Permissions"
+msgstr "Rugsatlar"
 
-msgid "Algerian Arabic"
-msgstr "Alžir Arapçasy"
+msgid "Important dates"
+msgstr "Möhüm seneler"
 
-msgid "Asturian"
-msgstr "Asturian"
+#, python-format
+msgid "%(name)s object with primary key %(key)r does not exist."
+msgstr "Esasy açary %(key)r bolan %(name)s obýekt ýok."
 
-msgid "Azerbaijani"
-msgstr "Azeri Türkçesi"
+msgid "Password changed successfully."
+msgstr "Parol üstünlikli üýtgedildi."
 
-msgid "Bulgarian"
-msgstr "Bolgar"
+#, python-format
+msgid "Change password: %s"
+msgstr "Paroly üýtgetmek: %s"
 
-msgid "Belarusian"
-msgstr "Belarusça"
+msgid "Authentication and Authorization"
+msgstr "Şahsyýet tanamak we Ygtyýarnama"
 
-msgid "Bengali"
-msgstr "Bengali"
+msgid "password"
+msgstr "parol"
 
-msgid "Breton"
-msgstr "Breton"
+msgid "last login"
+msgstr "soňky giriş"
 
-msgid "Bosnian"
-msgstr "Bosniýaça"
+msgid "No password set."
+msgstr "Parol goýulmady."
 
-msgid "Catalan"
-msgstr "Katalan"
+msgid "Invalid password format or unknown hashing algorithm."
+msgstr "Nädogry parol formaty ýa-da näbelli hashing algoritmi."
 
-msgid "Central Kurdish (Sorani)"
-msgstr "Merkezi Kürtçe (Soraniçe)"
+msgid "The two password fields didn’t match."
+msgstr "Iki parol meýdançasy gabat gelmedi."
 
-msgid "Czech"
-msgstr "Çehçe"
+msgid "Password"
+msgstr "Parol"
 
-msgid "Welsh"
-msgstr "Uelsçe"
+msgid "Password confirmation"
+msgstr "Parol tassyklamasy"
 
-msgid "Danish"
-msgstr "Daniýaça"
-
-msgid "German"
-msgstr "Nemesçe"
-
-msgid "Lower Sorbian"
-msgstr "Aşaky Sorbian"
-
-msgid "Greek"
-msgstr "Grekçe"
-
-msgid "English"
-msgstr "Iňlisçe"
-
-msgid "Australian English"
-msgstr "Awstraliýa Iňlisçesi"
-
-msgid "British English"
-msgstr "Britan Iňlisçesi"
-
-msgid "Esperanto"
-msgstr "Esperanto"
-
-msgid "Spanish"
-msgstr "Ispança"
-
-msgid "Argentinian Spanish"
-msgstr "Argentina Ispançasy"
-
-msgid "Colombian Spanish"
-msgstr "Kolumbiýa Ispançasy"
-
-msgid "Mexican Spanish"
-msgstr "Meksika Ispançasy"
-
-msgid "Nicaraguan Spanish"
-msgstr "Nikaragua Ispançasy"
-
-msgid "Venezuelan Spanish"
-msgstr "Wenezuela Ispançasy"
-
-msgid "Estonian"
-msgstr "Estonça"
-
-msgid "Basque"
-msgstr "Baskça"
-
-msgid "Persian"
-msgstr "Parsça"
-
-msgid "Finnish"
-msgstr "Finçe"
-
-msgid "French"
-msgstr "Fransuzça"
-
-msgid "Frisian"
-msgstr "Frisça"
-
-msgid "Irish"
-msgstr "Irlandça"
-
-msgid "Scottish Gaelic"
-msgstr "Şotlandiýa Gaelçasy"
-
-msgid "Galician"
-msgstr "Galisiýaça"
-
-msgid "Hebrew"
-msgstr "Ýewreýçe"
-
-msgid "Hindi"
-msgstr "Hindi"
-
-msgid "Croatian"
-msgstr "Horwatça"
-
-msgid "Upper Sorbian"
-msgstr "Ýokarky Sorbian"
-
-msgid "Hungarian"
-msgstr "Wengerçe"
-
-msgid "Armenian"
-msgstr "Ermeniçe"
-
-msgid "Interlingua"
-msgstr "Interlingua"
-
-msgid "Indonesian"
-msgstr "Indonezça"
-
-msgid "Igbo"
-msgstr "Igbo"
-
-msgid "Ido"
-msgstr "Ido"
-
-msgid "Icelandic"
-msgstr "Islandça"
-
-msgid "Italian"
-msgstr "Italýança"
-
-msgid "Japanese"
-msgstr "Ýaponça"
-
-msgid "Georgian"
-msgstr "Gruzinçe"
-
-msgid "Kabyle"
-msgstr "Kabyle"
-
-msgid "Kazakh"
-msgstr "Gazakça"
-
-msgid "Khmer"
-msgstr "Hmerçe"
-
-msgid "Kannada"
-msgstr "Kannada"
-
-msgid "Korean"
-msgstr "Koreýçe"
-
-msgid "Kyrgyz"
-msgstr "Gyrgyzça"
-
-msgid "Luxembourgish"
-msgstr "Lýuksemburgça"
-
-msgid "Lithuanian"
-msgstr "Litwança"
-
-msgid "Latvian"
-msgstr "Latwiýaça"
-
-msgid "Macedonian"
-msgstr "Makedonça"
-
-msgid "Malayalam"
-msgstr "Malaýalam"
-
-msgid "Mongolian"
-msgstr "Mongolça"
-
-msgid "Marathi"
-msgstr "Marasi"
-
-msgid "Malay"
-msgstr "Malaý"
-
-msgid "Burmese"
-msgstr "Birma"
-
-msgid "Norwegian Bokmål"
-msgstr "Norwegiýa Bokmaly"
-
-msgid "Nepali"
-msgstr "Nepali"
-
-msgid "Dutch"
-msgstr "Gollandça"
-
-msgid "Norwegian Nynorsk"
-msgstr "Norwegiýa Nynorskçasy"
-
-msgid "Ossetic"
-msgstr "Osetikçe"
-
-msgid "Punjabi"
-msgstr "Penjebiçe"
-
-msgid "Polish"
-msgstr "Polýakça"
-
-msgid "Portuguese"
-msgstr "Portugalça"
-
-msgid "Brazilian Portuguese"
-msgstr "Braziliýa Portugalçasy"
-
-msgid "Romanian"
-msgstr "Rumynça"
-
-msgid "Russian"
-msgstr "Rusça"
-
-msgid "Slovak"
-msgstr "Slowakça"
-
-msgid "Slovenian"
-msgstr "Slowençe"
-
-msgid "Albanian"
-msgstr "Albança"
-
-msgid "Serbian"
-msgstr "Serbçe"
-
-msgid "Serbian Latin"
-msgstr "Serb Latynçasy"
-
-msgid "Swedish"
-msgstr "Şwedçe"
-
-msgid "Swahili"
-msgstr "Swahili"
-
-msgid "Tamil"
-msgstr "Tamil"
-
-msgid "Telugu"
-msgstr "Telugu"
-
-msgid "Tajik"
-msgstr "Täjik"
-
-msgid "Thai"
-msgstr "Taýça"
-
-msgid "Turkmen"
-msgstr "Türkmençe"
-
-msgid "Turkish"
-msgstr "Türkçe"
-
-msgid "Tatar"
-msgstr "Tatarça"
-
-msgid "Udmurt"
-msgstr "Udmurt"
-
-msgid "Uyghur"
-msgstr "Uýgur"
-
-msgid "Ukrainian"
-msgstr "Ukrainçe"
-
-msgid "Urdu"
-msgstr "Urduça"
-
-msgid "Uzbek"
-msgstr "Özbekçe"
-
-msgid "Vietnamese"
-msgstr "Wýetnamça"
-
-msgid "Simplified Chinese"
-msgstr "Ýönekeýleşdirilen Hytaýça"
-
-msgid "Traditional Chinese"
-msgstr "Adaty Hytaýça"
-
-msgid "Messages"
-msgstr "Habarlar"
-
-msgid "Site Maps"
-msgstr "Saýt Kartalary"
-
-msgid "Static Files"
-msgstr "Statik Faýllar"
-
-msgid "Syndication"
-msgstr "Syndikasiýa"
-
-#. Translators: String used to replace omitted page numbers in elided page
-#. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
-msgid "…"
-msgstr "..."
-
-msgid "That page number is not an integer"
-msgstr "Ol sahypanyň sany bitewi san däl"
-
-msgid "That page number is less than 1"
-msgstr "Ol sahypanyň belgisi 1-den az"
-
-msgid "That page contains no results"
-msgstr "Ol sahypada hiç hili netije ýok"
-
-msgid "Enter a valid value."
-msgstr "Dogry baha giriziň."
-
-msgid "Enter a valid domain name."
-msgstr "Dogry domen adyny giriziň."
-
-msgid "Enter a valid URL."
-msgstr "Dogry URL giriziň."
-
-msgid "Enter a valid integer."
-msgstr "Dogry bitewi san giriziň."
-
-msgid "Enter a valid email address."
-msgstr "Dogry e-poçta salgysyny giriziň."
-
-#. Translators: "letters" means latin letters: a-z and A-Z.
-msgid ""
-"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
-msgstr ""
-"Harplardan, sanlardan, aşaky çyzyklardan ýa-da defislerden ybarat dogry "
-"“slug” giriziň."
+msgid "Enter the same password as before, for verification."
+msgstr "Barlamak üçin öňküsi ýaly paroly giriziň."
 
 msgid ""
-"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
-"hyphens."
+"Raw passwords are not stored, so there is no way to see this user’s "
+"password, but you can change the password using <a href=\"{}\">this form</a>."
 msgstr ""
-"Unikod harplaryndan, sanlardan, aşaky çyzyklardan ýa-da defislerden ybarat "
-"dogry “slug” giriziň."
-
-#, python-format
-msgid "Enter a valid %(protocol)s address."
-msgstr "Dogry %(protocol)s adresi giriziň."
-
-msgid "IPv4"
-msgstr "IPv4"
-
-msgid "IPv6"
-msgstr "IPv6"
-
-msgid "IPv4 or IPv6"
-msgstr "IPv4 ýa IPv6"
-
-msgid "Enter only digits separated by commas."
-msgstr "Diňe otur bilen aýrylan sanlary giriziň."
-
-#, python-format
-msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
-msgstr ""
-"%(limit_value)s bahasynyň dogry bolmagyny üpjün ediň (şuwagt %(show_value)s)."
-
-#, python-format
-msgid "Ensure this value is less than or equal to %(limit_value)s."
-msgstr ""
-"Maglumatyň %(limit_value)s bahasyndan az ýa-da deň bolmagyny üpjün ediň."
-
-#, python-format
-msgid "Ensure this value is greater than or equal to %(limit_value)s."
-msgstr ""
-"Maglumatyň %(limit_value)s bahasyndan köp ýa-da deň bolmagyny üpjün ediň."
-
-#, python-format
-msgid "Ensure this value is a multiple of step size %(limit_value)s."
-msgstr "Bu baha %(limit_value)s-nyň essesi bolmaly."
+"Çig parollar saklanmaýar, şonuň üçin bu ulanyjynyň parolyny görmegiň "
+"mümkinçiligi ýok, ýöne <a href=\"{}\">şu formany</a> ulanyp üýtgedip "
+"bilersiňiz."
 
 #, python-format
 msgid ""
-"Ensure this value is a multiple of step size %(limit_value)s, starting from "
-"%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
+"Please enter a correct %(username)s and password. Note that both fields may "
+"be case-sensitive."
 msgstr ""
+"Haýyş, dogry %(username)s we paroly giriziň. Iki meýdançanyň hem baş-setir "
+"harpa duýgur bolup biljekdigine üns beriň."
+
+msgid "This account is inactive."
+msgstr "Bu hasap hereketsiz."
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "New password"
+msgstr "Täze parol"
+
+msgid "New password confirmation"
+msgstr "Täze parol tassyklamasy"
+
+msgid "Your old password was entered incorrectly. Please enter it again."
+msgstr ""
+"Köne parolyňyz nädogry girizildi. Gaýtadan girizmegiňizi haýyş edýäris."
+
+msgid "Old password"
+msgstr "Köne parol"
+
+msgid "Password (again)"
+msgstr "Parol (gaýtadan)"
+
+msgid "algorithm"
+msgstr "algoritm"
+
+msgid "iterations"
+msgstr "gaýtalama"
+
+msgid "salt"
+msgstr "duz"
+
+msgid "hash"
+msgstr "hash"
+
+msgid "variety"
+msgstr "dürlülik"
+
+msgid "version"
+msgstr "wersiýa"
+
+msgid "memory cost"
+msgstr "ýadyň bahasy"
+
+msgid "time cost"
+msgstr "wagt bahasy"
+
+msgid "parallelism"
+msgstr "parallellik"
+
+msgid "work factor"
+msgstr "iş faktory"
+
+msgid "checksum"
+msgstr "çek"
+
+msgid "block size"
+msgstr "blok ölçegi"
+
+msgid "name"
+msgstr "at"
+
+msgid "content type"
+msgstr "mazmunyň görnüşi"
+
+msgid "codename"
+msgstr "kod ady"
+
+msgid "permission"
+msgstr "rugsat"
+
+msgid "permissions"
+msgstr "rugsatlar"
+
+msgid "group"
+msgstr "topar"
+
+msgid "groups"
+msgstr "toparlar"
+
+msgid "superuser status"
+msgstr "superuser ýagdaýy"
+
+msgid ""
+"Designates that this user has all permissions without explicitly assigning "
+"them."
+msgstr ""
+"Bu ulanyjynyň aç-açan bellemezden ähli rugsatlarynyň bardygyny belleýär."
+
+msgid ""
+"The groups this user belongs to. A user will get all permissions granted to "
+"each of their groups."
+msgstr ""
+"Bu ulanyjynyň degişli toparlary. Ulanyjy her bir topara berlen ähli "
+"rugsatlary alar."
+
+msgid "user permissions"
+msgstr "ulanyjy rugsatlary"
+
+msgid "Specific permissions for this user."
+msgstr "Bu ulanyjy üçin ýörite rugsatlar."
+
+msgid "username"
+msgstr "ulanyjy ady"
+
+msgid "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."
+msgstr ""
+"Gerekli. 150 harp ýa-da azyrak. Diňe harplar, sanlar we @/./+/-/_ mümkin."
+
+msgid "A user with that username already exists."
+msgstr "Bu ulanyjy adyny ulanýan ulanyjy eýýäm bar."
+
+msgid "first name"
+msgstr "at"
+
+msgid "last name"
+msgstr "familiýa"
+
+msgid "email address"
+msgstr "email salgy"
+
+msgid "staff status"
+msgstr "işgärleriň ýagdaýy"
+
+msgid "Designates whether the user can log into this admin site."
+msgstr "Ulanyjynyň bu administrator sahypasyna girip biljekdigini kesgitleýär."
+
+msgid "active"
+msgstr "işjeň"
+
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr ""
+"Bu ulanyja işjeň garalmalydygyny ýa-da ýokdugyny kesgitleýär. Hasaplary "
+"pozmagyň ýerine şuny saýlaň."
+
+msgid "date joined"
+msgstr "goşulan senesi"
+
+msgid "user"
+msgstr "ulanyjy"
+
+msgid "users"
+msgstr "ulanyjylar"
 
 #, python-format
 msgid ""
-"Ensure this value has at least %(limit_value)d character (it has "
-"%(show_value)d)."
+"This password is too short. It must contain at least %(min_length)d "
+"character."
 msgid_plural ""
-"Ensure this value has at least %(limit_value)d characters (it has "
-"%(show_value)d)."
+"This password is too short. It must contain at least %(min_length)d "
+"characters."
 msgstr[0] ""
-"Bu maglumatda iň az %(limit_value)d harp bardygyna göz ýetiriň (munda "
-"%(show_value)d bar)."
+"Bu parol gaty gysga. Iň azyndan %(min_length)d nyşandan ybarat bolmaly."
 msgstr[1] ""
-"Bu maglumatda azyndan %(limit_value)d nyşanyň bolmagyny üpjün ediň (şuwagt "
-"%(show_value)d sany bar)."
+"Bu parol gaty gysga. Iň azyndan %(min_length)d nyşandan ybarat bolmaly."
 
 #, python-format
+msgid "Your password must contain at least %(min_length)d character."
+msgid_plural "Your password must contain at least %(min_length)d characters."
+msgstr[0] "Parolyňyzda azyndan %(min_length)d nyşan bolmaly."
+msgstr[1] "Parolyňyzda azyndan %(min_length)d nyşan bolmaly."
+
+#, python-format
+msgid "The password is too similar to the %(verbose_name)s."
+msgstr "Parol %(verbose_name)s-e gaty meňzeýär."
+
+msgid "Your password can’t be too similar to your other personal information."
+msgstr "Parolyňyz beýleki şahsy maglumatlaryňyza gaty meňzeş bolmaly däl."
+
+msgid "This password is too common."
+msgstr "Bu parol gaty ýygy ulanylýar."
+
+msgid "Your password can’t be a commonly used password."
+msgstr "Parolyňyz köplenç ulanylýan parol bolmaly däl."
+
+msgid "This password is entirely numeric."
+msgstr "Bu parol diňe sanlardan ybarat."
+
+msgid "Your password can’t be entirely numeric."
+msgstr "Parolyňyz diňe sanlardan ybarat bolup bilmez."
+
+#, python-format
+msgid "Password reset on %(site_name)s"
+msgstr "%(site_name)s-de paroly täzeden düzüldi"
+
 msgid ""
-"Ensure this value has at most %(limit_value)d character (it has "
-"%(show_value)d)."
-msgid_plural ""
-"Ensure this value has at most %(limit_value)d characters (it has "
-"%(show_value)d)."
-msgstr[0] ""
-"Bu maglumatda köpünden %(limit_value)d harp bardygyna göz ýetiriň (bunda "
-"%(show_value)d bar)"
-msgstr[1] ""
-"Bu maglumatda iň köp %(limit_value)d nyşanyň bolmagyny üpjün ediň (şuwagt "
-"%(show_value)d sany bar)"
-
-msgid "Enter a number."
-msgstr "San giriziň"
-
-#, python-format
-msgid "Ensure that there are no more than %(max)s digit in total."
-msgid_plural "Ensure that there are no more than %(max)s digits in total."
-msgstr[0] "Bu ýerde jemi %(max)s'dan köp san ýokduguna göz ýetiriň."
-msgstr[1] "Bu ýerde jemi %(max)s sanydan köp sifriň bolmazlygyny üpjün ediň."
-
-#, python-format
-msgid "Ensure that there are no more than %(max)s decimal place."
-msgid_plural "Ensure that there are no more than %(max)s decimal places."
-msgstr[0] "Bu ýerde %(max)s'dan köp nokatly san ýokdugyna göz ýetiriň"
-msgstr[1] "Bu ýerde %(max)s sanydan köp nokatly san ýoklugyny üpjün ediň."
-
-#, python-format
-msgid ""
-"Ensure that there are no more than %(max)s digit before the decimal point."
-msgid_plural ""
-"Ensure that there are no more than %(max)s digits before the decimal point."
-msgstr[0] "Nokatdan öň %(max)s'dan köp san ýokdugyna göz ýetiriň"
-msgstr[1] "Nokatdan öň %(max)s sanydan köp sifriň ýoklugyny üpjün ediň."
-
-#, python-format
-msgid ""
-"File extension “%(extension)s” is not allowed. Allowed extensions are: "
-"%(allowed_extensions)s."
+"Enter a valid username. This value may contain only unaccented lowercase a-z "
+"and uppercase A-Z letters, numbers, and @/./+/-/_ characters."
 msgstr ""
-"\"%(extension)s\" faýl görnüşine rugsat edilmeýär. Rugsat berilýän faýl "
-"görnüşleri şulardan ybarat: %(allowed_extensions)s"
-
-msgid "Null characters are not allowed."
-msgstr "Null nyşanlara rugsat berilmeýär."
-
-msgid "and"
-msgstr "we"
-
-#, python-format
-msgid "%(model_name)s with this %(field_labels)s already exists."
-msgstr "%(field_labels)s bilen baglanyşykly %(model_name)s eýýäm bar."
-
-#, python-format
-msgid "Constraint “%(name)s” is violated."
-msgstr "Çäklendirme “%(name)s” bozuldy."
-
-#, python-format
-msgid "Value %(value)r is not a valid choice."
-msgstr "%(value)r dogry saýlaw däl."
-
-msgid "This field cannot be null."
-msgstr "Bu meýdan null bilmez."
-
-msgid "This field cannot be blank."
-msgstr "Bu meýdan boş bolup bilmez."
-
-#, python-format
-msgid "%(model_name)s with this %(field_label)s already exists."
-msgstr "%(field_label)s bilen baglanyşykly %(model_name)s eýýäm bar."
-
-#. Translators: The 'lookup_type' is one of 'date', 'year' or
-#. 'month'. Eg: "Title must be unique for pub_date year"
-#, python-format
-msgid ""
-"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
-msgstr ""
-"%(lookup_type)s %(date_field_label)s üçin %(field_label)s özboluşly "
-"bolmalydyr."
-
-#, python-format
-msgid "Field of type: %(field_type)s"
-msgstr "Meýdan görnüşi: %(field_type)s"
-
-#, python-format
-msgid "“%(value)s” value must be either True or False."
-msgstr "\"%(value)s\" hökman True ýa-da False bolmalydyr."
-
-#, python-format
-msgid "“%(value)s” value must be either True, False, or None."
-msgstr "\"%(value)s\" hökman True, False ýa-da None bolmalydyr."
-
-msgid "Boolean (Either True or False)"
-msgstr "Boolean (True ýa-da False)"
-
-#, python-format
-msgid "String (up to %(max_length)s)"
-msgstr "Setir (iň köp %(max_length)s)"
-
-msgid "String (unlimited)"
-msgstr "String (limitsiz)"
-
-msgid "Comma-separated integers"
-msgstr "Otur bilen bölünen bitewi sanlar"
-
-#, python-format
-msgid ""
-"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
-"format."
-msgstr ""
-"\"%(value)s\" bahasynyň nädogry sene formaty bar. ÝÝÝÝ-AA-GG görnüşinde "
-"bolmaly."
-
-#, python-format
-msgid ""
-"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
-"date."
-msgstr ""
-"\"%(value)s\" dogry yazylyş usuluna (ÝÝÝÝ-AA-GG) eýe, ýöne, sene nädogry."
-
-msgid "Date (without time)"
-msgstr "Sene (wagtsyz)"
-
-#, python-format
-msgid ""
-"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
-"uuuuuu]][TZ] format."
-msgstr ""
-"\"%(value)s\" ýalňyş görnüşde ýazylan. Bu baha hökmany suratda ÝÝÝÝ-AA-GG SS:"
-"MM[:ss[.uuuuuu]][TZ] görnüşde bolmalydyr."
-
-#, python-format
-msgid ""
-"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
-"[TZ]) but it is an invalid date/time."
-msgstr ""
-"\"%(value)s\" dogry sene görnüşine eýe (ÝÝÝÝ-AA-GG SS:MM[:ss[.uuuuuu]][TZ]). "
-"Ýöne bu nädogry sene/wagt."
-
-msgid "Date (with time)"
-msgstr "Sene (wagty bilen)"
-
-#, python-format
-msgid "“%(value)s” value must be a decimal number."
-msgstr "\"%(value)s\" hökman nokatly san bolmalydyr."
-
-msgid "Decimal number"
-msgstr "Onluk san"
-
-#, python-format
-msgid ""
-"“%(value)s” value has an invalid format. It must be in [DD] [[HH:]MM:]ss[."
-"uuuuuu] format."
-msgstr ""
-"\"%(value)s\" ýalňyş sene görnüşine eýe. Bu hökman  [GG] [[SS:]AA:]ss[."
-"uuuuuu] görnüşinde bolmalydyr."
-
-msgid "Duration"
-msgstr "Dowamlylyk"
-
-msgid "Email address"
-msgstr "Email adres"
-
-msgid "File path"
-msgstr "Faýl ýoly"
-
-#, python-format
-msgid "“%(value)s” value must be a float."
-msgstr "\"%(value)s float san bolmaly."
-
-msgid "Floating point number"
-msgstr "Float san"
-
-#, python-format
-msgid "“%(value)s” value must be an integer."
-msgstr "\"%(value)s\" bitewi san bolmaly."
-
-msgid "Integer"
-msgstr "Bitewi san"
-
-msgid "Big (8 byte) integer"
-msgstr "Uly (8 baýt) bitewi san"
-
-msgid "Small integer"
-msgstr "Kiçi bitewi san"
-
-msgid "IPv4 address"
-msgstr "IPv4 salgy"
-
-msgid "IP address"
-msgstr "IP salgy"
-
-#, python-format
-msgid "“%(value)s” value must be either None, True or False."
-msgstr "\"%(value)s\" None, True ýa-da False bolmaly."
-
-msgid "Boolean (Either True, False or None)"
-msgstr "Boolean (True, False ýa-da None)"
-
-msgid "Positive big integer"
-msgstr "Pozitiw uly bitewi san"
-
-msgid "Positive integer"
-msgstr "Pozitiw bitewi san"
-
-msgid "Positive small integer"
-msgstr "Pozitiw kiçi bitewi san"
-
-#, python-format
-msgid "Slug (up to %(max_length)s)"
-msgstr "Slug (iň köp %(max_length)s)"
-
-msgid "Text"
-msgstr "Tekst"
-
-#, python-format
-msgid ""
-"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
-"format."
-msgstr ""
-"\"%(value)s\" bahasy nädogry formata eýe. SS:MM[:ss[.uuuuuu]] formatda "
-"bolmaly."
-
-#, python-format
-msgid ""
-"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
-"invalid time."
-msgstr ""
-"\"%(value)s\" bahasy dogry formata eýe (SS:MM[:ss[.uuuuuu]]) ýöne bu nädogry "
-"wagt."
-
-msgid "Time"
-msgstr "Wagt"
-
-msgid "URL"
-msgstr "URL"
-
-msgid "Raw binary data"
-msgstr "Çig ikilik maglumat"
-
-#, python-format
-msgid "“%(value)s” is not a valid UUID."
-msgstr "\"%(value)s\" dogry UUID däl."
-
-msgid "Universally unique identifier"
-msgstr "Ähliumumy özboluşly kesgitleýji"
-
-msgid "File"
-msgstr "Faýl"
-
-msgid "Image"
-msgstr "Surat"
-
-msgid "A JSON object"
-msgstr "JSON obýekti"
-
-msgid "Value must be valid JSON."
-msgstr "Bahasy JSON bolmaly."
-
-#, python-format
-msgid "%(model)s instance with %(field)s %(value)r does not exist."
-msgstr "%(field)s%(value)r bolan %(model)s ýok."
-
-msgid "Foreign Key (type determined by related field)"
-msgstr "Daşary açary (baglanyşykly meýdança bilen kesgitlenýär)"
-
-msgid "One-to-one relationship"
-msgstr "Bire-bir gatnaşyk"
-
-#, python-format
-msgid "%(from)s-%(to)s relationship"
-msgstr "%(from)s-%(to)s gatnaşyk"
-
-#, python-format
-msgid "%(from)s-%(to)s relationships"
-msgstr "%(from)s-%(to)s gatnaşyklar"
-
-msgid "Many-to-many relationship"
-msgstr "Köp-köp gatnaşyk"
-
-#. Translators: If found as last label character, these punctuation
-#. characters will prevent the default label_suffix to be appended to the
-#. label
-msgid ":?.!"
-msgstr ":?.!"
-
-msgid "This field is required."
-msgstr "Bu meýdança hökman gerekli."
-
-msgid "Enter a whole number."
-msgstr "Bitin san giriziň."
-
-msgid "Enter a valid date."
-msgstr "Dogry senäni giriziň."
-
-msgid "Enter a valid time."
-msgstr "Dogry wagt giriziň."
-
-msgid "Enter a valid date/time."
-msgstr "Dogry senäni/wagty giriziň."
-
-msgid "Enter a valid duration."
-msgstr "Dogry dowamlylygy giriziň."
-
-#, python-brace-format
-msgid "The number of days must be between {min_days} and {max_days}."
-msgstr "Günleriň sany {min_days} bilen {max_days} arasynda bolmaly."
-
-msgid "No file was submitted. Check the encoding type on the form."
-msgstr "Hiç hili faýl tabşyrylmady. Formadaky enkodiň görnüşini barlaň."
-
-msgid "No file was submitted."
-msgstr "Hiç hili faýl tabşyrylmady."
-
-msgid "The submitted file is empty."
-msgstr "Tabşyrylan faýl boş."
-
-#, python-format
-msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
-msgid_plural ""
-"Ensure this filename has at most %(max)d characters (it has %(length)d)."
-msgstr[0] ""
-"Bu faýl adynyň iň köp %(max)d nyşanynyň bolmagyny üpjin ediň (şuwagt "
-"%(length)d sany bar)."
-msgstr[1] ""
-"Bu faýl adynyň iň köp %(max)d nyşanynyň bolmagyny üpjin ediň (şuwagt "
-"%(length)d sany bar)."
-
-msgid "Please either submit a file or check the clear checkbox, not both."
-msgstr "Bir faýl iberiň ýa-da arassala gutyjygyny belläň, ikisini bile däl."
+"Dogry ulanyjy adyny giriziň. Bu bahada diňe aksentsiz kiçi a-z harplary we "
+"uly A-Z harplary, sanlar we @/./+/-/_ nyşanlary bolup biler."
 
 msgid ""
-"Upload a valid image. The file you uploaded was either not an image or a "
-"corrupted image."
+"Enter a valid username. This value may contain only letters, numbers, and "
+"@/./+/-/_ characters."
 msgstr ""
-"Dogry surat ýükläň. Ýüklän faýlyňyz ýa surat däldi ýa-da zaýalanan suratdy."
+"Dogry ulanyjy adyny giriziň. Bu bahada diňe harplar, sanlar we @/./+/-/_ "
+"nyşanlary bolup biler."
 
-#, python-format
-msgid "Select a valid choice. %(value)s is not one of the available choices."
-msgstr "Dogry saýlawy saýlaň. %(value)s elýeterli saýlawlaryň biri däl."
+msgid "Logged out"
+msgstr "Çykyldy"
 
-msgid "Enter a list of values."
-msgstr "Bahalaryň sanawyny giriziň."
+msgid "Password reset"
+msgstr "Paroly täzeden düzmek"
 
-msgid "Enter a complete value."
-msgstr "Doly bahany giriziň."
+msgid "Password reset sent"
+msgstr "Paroly täzeden düzmek boýunça görkezmeler iberildi"
 
-msgid "Enter a valid UUID."
-msgstr "Dogry UUID giriziň."
+msgid "Enter new password"
+msgstr "Täze parol giriziň"
 
-msgid "Enter a valid JSON."
-msgstr "Dogry JSON giriziň."
+msgid "Password reset unsuccessful"
+msgstr "Paroly täzeden düzüp bolmady"
 
-#. Translators: This is the default suffix added to form field labels
-msgid ":"
-msgstr ":"
+msgid "Password reset complete"
+msgstr "Paroly täzeden düzüldi"
 
-#, python-format
-msgid "(Hidden field %(name)s) %(error)s"
-msgstr "(Gizlin meýdan %(name)s) %(error)s"
+msgid "Password change"
+msgstr "Parol üýtgetmek"
 
-#, python-format
-msgid ""
-"ManagementForm data is missing or has been tampered with. Missing fields: "
-"%(field_names)s. You may need to file a bug report if the issue persists."
-msgstr ""
-"ManagementForm maglumatlary ýok ýa-da bozulan. Tapylmadyk meýdança: "
-"%(field_names)s. Mesele dowam etse, \"bug report\" açmaly bolmagyňyz mümkin."
-
-#, python-format
-msgid "Please submit at most %(num)d form."
-msgid_plural "Please submit at most %(num)d forms."
-msgstr[0] "Haýyş, iň köp %(num)d form tabşyryň."
-msgstr[1] "Haýyş, iň köp %(num)d form tabşyryň."
-
-#, python-format
-msgid "Please submit at least %(num)d form."
-msgid_plural "Please submit at least %(num)d forms."
-msgstr[0] "Haýyş, azyndan %(num)d form tabşyryň."
-msgstr[1] "Haýyş, azyndan %(num)d form tabşyryň."
-
-msgid "Order"
-msgstr "Tertip"
-
-msgid "Delete"
-msgstr "Poz"
-
-#, python-format
-msgid "Please correct the duplicate data for %(field)s."
-msgstr "%(field)s üçin dublikat maglumatlary düzediň."
-
-#, python-format
-msgid "Please correct the duplicate data for %(field)s, which must be unique."
-msgstr "Özboluşly bolmaly %(field)s üçin dublikat maglumatlary düzediň."
-
-#, python-format
-msgid ""
-"Please correct the duplicate data for %(field_name)s which must be unique "
-"for the %(lookup)s in %(date_field)s."
-msgstr ""
-"%(date_field)s meýdanynda %(lookup)süçin özboluşly bolmaly %(field_name)s "
-"üçin dublikat maglumatlary düzediň."
-
-msgid "Please correct the duplicate values below."
-msgstr "Aşakdaky dublikat bahalary düzediň."
-
-msgid "The inline value did not match the parent instance."
-msgstr "Giriş bahasy esasy mysal bilen gabat gelmedi."
-
-msgid "Select a valid choice. That choice is not one of the available choices."
-msgstr "Dogry saýlawy saýlaň. Bu saýlaw, elýeterli saýlawlaryň biri däl."
-
-#, python-format
-msgid "“%(pk)s” is not a valid value."
-msgstr "\"%(pk)s\" dogry baha däl."
-
-#, python-format
-msgid ""
-"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
-"may be ambiguous or it may not exist."
-msgstr ""
-"%(datetime)s wagty %(current_timezone)s wagt zolagy bilen düşündirip "
-"bolmady; garyşyk bolup biler ýa-da ýok bolmagy mümkin."
-
-msgid "Clear"
-msgstr "Arassala"
-
-msgid "Currently"
-msgstr "Häzirki wagtda"
-
-msgid "Change"
-msgstr "Üýtget"
-
-msgid "Unknown"
-msgstr "Näbelli"
-
-msgid "Yes"
-msgstr "Hawa"
-
-msgid "No"
-msgstr "Ýok"
-
-#. Translators: Please do not add spaces around commas.
-msgid "yes,no,maybe"
-msgstr "hawa,ýok,belki"
-
-#, python-format
-msgid "%(size)d byte"
-msgid_plural "%(size)d bytes"
-msgstr[0] "%(size)d baýt"
-msgstr[1] "%(size)d baýt"
-
-#, python-format
-msgid "%s KB"
-msgstr "%s KB"
-
-#, python-format
-msgid "%s MB"
-msgstr "%s MB"
-
-#, python-format
-msgid "%s GB"
-msgstr "%s GB"
-
-#, python-format
-msgid "%s TB"
-msgstr "%s TB"
-
-#, python-format
-msgid "%s PB"
-msgstr "%s PB"
-
-msgid "p.m."
-msgstr "p.m"
-
-msgid "a.m."
-msgstr "a.m"
-
-msgid "PM"
-msgstr "PM"
-
-msgid "AM"
-msgstr "AM"
-
-msgid "midnight"
-msgstr "ýary gije"
-
-msgid "noon"
-msgstr "günortan"
-
-msgid "Monday"
-msgstr "Duşenbe"
-
-msgid "Tuesday"
-msgstr "Sişenbe"
-
-msgid "Wednesday"
-msgstr "Çarşenbe"
-
-msgid "Thursday"
-msgstr "Penşenbe"
-
-msgid "Friday"
-msgstr "Anna"
-
-msgid "Saturday"
-msgstr "Şenbe"
-
-msgid "Sunday"
-msgstr "Ýekşenbe"
-
-msgid "Mon"
-msgstr "Duş"
-
-msgid "Tue"
-msgstr "Siş"
-
-msgid "Wed"
-msgstr "Çarş"
-
-msgid "Thu"
-msgstr "Pen"
-
-msgid "Fri"
-msgstr "Anna"
-
-msgid "Sat"
-msgstr "Şen"
-
-msgid "Sun"
-msgstr "Ýek"
-
-msgid "January"
-msgstr "Ýanwar"
-
-msgid "February"
-msgstr "Fewral"
-
-msgid "March"
-msgstr "Mart"
-
-msgid "April"
-msgstr "Aprel"
-
-msgid "May"
-msgstr "Maý"
-
-msgid "June"
-msgstr "Iýun"
-
-msgid "July"
-msgstr "Iýul"
-
-msgid "August"
-msgstr "Awgust"
-
-msgid "September"
-msgstr "Sentýabr"
-
-msgid "October"
-msgstr "Oktýabr"
-
-msgid "November"
-msgstr "Noýabr"
-
-msgid "December"
-msgstr "Dekabr"
-
-msgid "jan"
-msgstr "ýan"
-
-msgid "feb"
-msgstr "few"
-
-msgid "mar"
-msgstr "mart"
-
-msgid "apr"
-msgstr "apr"
-
-msgid "may"
-msgstr "maý"
-
-msgid "jun"
-msgstr "iýun"
-
-msgid "jul"
-msgstr "iýul"
-
-msgid "aug"
-msgstr "awg"
-
-msgid "sep"
-msgstr "sent"
-
-msgid "oct"
-msgstr "okt"
-
-msgid "nov"
-msgstr "noý"
-
-msgid "dec"
-msgstr "dek"
-
-msgctxt "abbrev. month"
-msgid "Jan."
-msgstr "Ýan."
-
-msgctxt "abbrev. month"
-msgid "Feb."
-msgstr "Few."
-
-msgctxt "abbrev. month"
-msgid "March"
-msgstr "Mart"
-
-msgctxt "abbrev. month"
-msgid "April"
-msgstr "Aprel"
-
-msgctxt "abbrev. month"
-msgid "May"
-msgstr "Maý"
-
-msgctxt "abbrev. month"
-msgid "June"
-msgstr "Iýun"
-
-msgctxt "abbrev. month"
-msgid "July"
-msgstr "Iýul"
-
-msgctxt "abbrev. month"
-msgid "Aug."
-msgstr "Awg."
-
-msgctxt "abbrev. month"
-msgid "Sept."
-msgstr "Sent."
-
-msgctxt "abbrev. month"
-msgid "Oct."
-msgstr "Okt."
-
-msgctxt "abbrev. month"
-msgid "Nov."
-msgstr "Noý."
-
-msgctxt "abbrev. month"
-msgid "Dec."
-msgstr "Dek."
-
-msgctxt "alt. month"
-msgid "January"
-msgstr "Ýanwar"
-
-msgctxt "alt. month"
-msgid "February"
-msgstr "Fewral"
-
-msgctxt "alt. month"
-msgid "March"
-msgstr "Mart"
-
-msgctxt "alt. month"
-msgid "April"
-msgstr "Aprel"
-
-msgctxt "alt. month"
-msgid "May"
-msgstr "Maý"
-
-msgctxt "alt. month"
-msgid "June"
-msgstr "Iýun"
-
-msgctxt "alt. month"
-msgid "July"
-msgstr "Iýul"
-
-msgctxt "alt. month"
-msgid "August"
-msgstr "Awgust"
-
-msgctxt "alt. month"
-msgid "September"
-msgstr "Sentýabr"
-
-msgctxt "alt. month"
-msgid "October"
-msgstr "Oktýabr"
-
-msgctxt "alt. month"
-msgid "November"
-msgstr "Noýabr"
-
-msgctxt "alt. month"
-msgid "December"
-msgstr "Dekabr"
-
-msgid "This is not a valid IPv6 address."
-msgstr "Bu dogry IPv6 salgy däl."
-
-#, python-format
-msgctxt "String to return when truncating text"
-msgid "%(truncated_text)s…"
-msgstr "%(truncated_text)s…"
-
-msgid "or"
-msgstr "ýa"
-
-#. Translators: This string is used as a separator between list elements
-msgid ", "
-msgstr "\""
-
-#, python-format
-msgid "%(num)d year"
-msgid_plural "%(num)d years"
-msgstr[0] "%(num)d ýyl"
-msgstr[1] "%(num)d ýyl"
-
-#, python-format
-msgid "%(num)d month"
-msgid_plural "%(num)d months"
-msgstr[0] "%(num)d aý"
-msgstr[1] "%(num)d aý"
-
-#, python-format
-msgid "%(num)d week"
-msgid_plural "%(num)d weeks"
-msgstr[0] "%(num)d hepde"
-msgstr[1] "%(num)d hepde"
-
-#, python-format
-msgid "%(num)d day"
-msgid_plural "%(num)d days"
-msgstr[0] "%(num)d gün"
-msgstr[1] "%(num)d gün"
-
-#, python-format
-msgid "%(num)d hour"
-msgid_plural "%(num)d hours"
-msgstr[0] "%(num)d sagat"
-msgstr[1] "%(num)d sagat"
-
-#, python-format
-msgid "%(num)d minute"
-msgid_plural "%(num)d minutes"
-msgstr[0] "%(num)d minut"
-msgstr[1] "%(num)d minut"
-
-msgid "Forbidden"
-msgstr "Gadagan "
-
-msgid "CSRF verification failed. Request aborted."
-msgstr "CSRF dogrylamak şowsuz. Talap ýatyryldy."
-
-msgid ""
-"You are seeing this message because this HTTPS site requires a “Referer "
-"header” to be sent by your web browser, but none was sent. This header is "
-"required for security reasons, to ensure that your browser is not being "
-"hijacked by third parties."
-msgstr ""
-"Bu haty görýärsiňiz, sebäbi bu HTTPS sahypasy web brauzeriňiz tarapyndan "
-"iberilmeli \"Referer header\" talap edýär, ýöne hiç biri iberilmedi. Bu "
-"sözbaşy, brauzeriňiziň üçünji şahyslar tarapyndan ogurlanmazlygy üçin "
-"howpsuzlyk sebäpli talap edilýär."
-
-msgid ""
-"If you have configured your browser to disable “Referer” headers, please re-"
-"enable them, at least for this site, or for HTTPS connections, or for “same-"
-"origin” requests."
-msgstr ""
-"Brauzeriňizde \"Referer\" sözbaşylaryny öçüren bolsaňyz, iň bolmanda bu "
-"sahypa ýa-da HTTPS birikmeleri ýa-da \"meňzeş\" talaplar üçin täzeden açyň."
-
-msgid ""
-"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
-"including the “Referrer-Policy: no-referrer” header, please remove them. The "
-"CSRF protection requires the “Referer” header to do strict referer checking. "
-"If you’re concerned about privacy, use alternatives like <a "
-"rel=\"noreferrer\" …> for links to third-party sites."
-msgstr ""
-"Egerde siz <meta name=\"referrer\" content=\"no-referrer\"> diýen bellik "
-"ýada \"Referrer-Policy: no-referrer\" header ulanýan bolsaňyz, olary "
-"aýyrmagyňyzy haýyş edýäris. CSRF goragy üçin \"Referer\" header-i dogry "
-"salgylanma üçin gereklidir. Eger siz gizlinlik üçin alada etseňiz, üçinji "
-"şahs sahypalara baglanyşyklar üçin <a rel=\"noreferrer\" …> ýaly "
-"alternatiwalary ulanyp bilersiňiz."
-
-msgid ""
-"You are seeing this message because this site requires a CSRF cookie when "
-"submitting forms. This cookie is required for security reasons, to ensure "
-"that your browser is not being hijacked by third parties."
-msgstr ""
-"Bu sahypa formalary tabşyranda CSRF kukisini talap edýäligi sebäpli bu "
-"habary görýärsiňiz. Bu kuki, brauzeriňiziň üçünji taraplar tarapyndan "
-"ogurlanmazlygy üçin howpsuzlyk sebäpli talap edilýär."
-
-msgid ""
-"If you have configured your browser to disable cookies, please re-enable "
-"them, at least for this site, or for “same-origin” requests."
-msgstr ""
-"Brauzeriňizde kukileri öçüren bolsaňyz, iň bolmanda şu sahypa ýa-da "
-"\"meňzeş\" talaplar üçin olary täzeden açyň."
-
-msgid "More information is available with DEBUG=True."
-msgstr "Has giňişleýin maglumat DEBUG=True bilen elýeterlidir."
-
-msgid "No year specified"
-msgstr "Ýyl görkezilmedi"
-
-msgid "Date out of range"
-msgstr "Sene çägiň daşynda"
-
-msgid "No month specified"
-msgstr "Aý görkezilmedi"
-
-msgid "No day specified"
-msgstr "Gün görkezilmedi"
-
-msgid "No week specified"
-msgstr "Hepde görkezilmedi"
-
-#, python-format
-msgid "No %(verbose_name_plural)s available"
-msgstr "Elýeterli %(verbose_name_plural)s ýok"
-
-#, python-format
-msgid ""
-"Future %(verbose_name_plural)s not available because %(class_name)s."
-"allow_future is False."
-msgstr ""
-"Gelejek %(verbose_name_plural)s elýeterli däl sebäbi %(class_name)s."
-"allow_future bahasy False"
-
-#, python-format
-msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
-msgstr "Nädogry sene setiri \"%(datestr)s\" berlen format \"%(format)s\""
-
-#, python-format
-msgid "No %(verbose_name)s found matching the query"
-msgstr "Talap bilen gabat gelýän %(verbose_name)s tapylmady"
-
-msgid "Page is not “last”, nor can it be converted to an int."
-msgstr "Sahypa “iň soňky” däl, ony int-ede öwrüp bolmaz."
-
-#, python-format
-msgid "Invalid page (%(page_number)s): %(message)s"
-msgstr "Nädogry sahypa  (%(page_number)s ): %(message)s"
-
-#, python-format
-msgid "Empty list and “%(class_name)s.allow_empty” is False."
-msgstr "Boş list we \"%(class_name)s.allow_empty\" bahasy False"
-
-msgid "Directory indexes are not allowed here."
-msgstr "Bu ýerde katalog indekslerine rugsat berilmeýär."
-
-#, python-format
-msgid "“%(path)s” does not exist"
-msgstr "\"%(path)s\" beýle ýol ýok"
-
-#, python-format
-msgid "Index of %(directory)s"
-msgstr "%(directory)s indeksi"
-
-msgid "The install worked successfully! Congratulations!"
-msgstr "Üstünlikli guruldy! Gutlaýarys!"
-
-#, python-format
-msgid ""
-"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
-"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
-msgstr ""
-"Django %(version)s üçin <a href=\"https://docs.djangoproject.com/en/"
-"%(version)s/releases/\" target=\"_blank\" rel=\"noopener\">goýberiş "
-"belliklerini</a> görüň"
-
-#, python-format
-msgid ""
-"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
-"%(version)s/ref/settings/#debug\" target=\"_blank\" "
-"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
-"configured any URLs."
-msgstr ""
-"Bu sahypany görýärsiňiz, sebäbi sazlamalar faýlyňyzda <a href=\"https://docs."
-"djangoproject.com/en/%(version)s/ref/settings/#debug\" target=\"_blank\" "
-"rel=\"noopener\">DEBUG=True</a> we hiç hili URL düzmediňiz."
-
-msgid "Django Documentation"
-msgstr "Django resminamalary"
-
-msgid "Topics, references, &amp; how-to’s"
-msgstr "Mowzuklar, salgylanmalar, &amp; how-to-lar"
-
-msgid "Tutorial: A Polling App"
-msgstr "Gollanma: Ses beriş programmasy"
-
-msgid "Get started with Django"
-msgstr "Django bilen başlaň"
-
-msgid "Django Community"
-msgstr "Django jemgyýeti"
-
-msgid "Connect, get help, or contribute"
-msgstr "Birikiň, kömek alyň ýa-da goşant goşuň"
+msgid "Password change successful"
+msgstr "Parol üýtgetmek üstünlikli tamamlandy"
