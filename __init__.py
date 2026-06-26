@@ -1,257 +1,422 @@
-"""
-Settings and configuration for Django.
-
-Read values from the module specified by the DJANGO_SETTINGS_MODULE environment
-variable, and then from django.conf.global_settings; see the global_settings.py
-for a list of all possible variables.
-"""
-
-import importlib
-import os
-import time
-import traceback
+import re
 import warnings
-from pathlib import Path
 
-import django
-from django.conf import global_settings
-from django.core.exceptions import ImproperlyConfigured
-from django.utils.functional import LazyObject, empty
+from django.apps import apps as django_apps
+from django.conf import settings
+from django.core.exceptions import ImproperlyConfigured, PermissionDenied
+from django.middleware.csrf import rotate_token
+from django.utils.crypto import constant_time_compare
+from django.utils.deprecation import RemovedInDjango61Warning
+from django.utils.inspect import signature
+from django.utils.module_loading import import_string
+from django.views.decorators.debug import sensitive_variables
 
-ENVIRONMENT_VARIABLE = "DJANGO_SETTINGS_MODULE"
-DEFAULT_STORAGE_ALIAS = "default"
-STATICFILES_STORAGE_ALIAS = "staticfiles"
+from .signals import user_logged_in, user_logged_out, user_login_failed
 
-
-class SettingsReference(str):
-    """
-    String subclass which references a current settings value. It's treated as
-    the value in memory but serializes to a settings.NAME attribute reference.
-    """
-
-    def __new__(self, value, setting_name):
-        return str.__new__(self, value)
-
-    def __init__(self, value, setting_name):
-        self.setting_name = setting_name
+SESSION_KEY = "_auth_user_id"
+BACKEND_SESSION_KEY = "_auth_user_backend"
+HASH_SESSION_KEY = "_auth_user_hash"
+REDIRECT_FIELD_NAME = "next"
 
 
-class LazySettings(LazyObject):
-    """
-    A lazy proxy for either global Django settings or a custom settings object.
-    The user can manually configure settings prior to using them. Otherwise,
-    Django uses the settings module pointed to by DJANGO_SETTINGS_MODULE.
-    """
+def load_backend(path):
+    return import_string(path)()
 
-    def _setup(self, name=None):
-        """
-        Load the settings module pointed to by the environment variable. This
-        is used the first time settings are needed, if the user hasn't
-        configured settings manually.
-        """
-        settings_module = os.environ.get(ENVIRONMENT_VARIABLE)
-        if not settings_module:
-            desc = ("setting %s" % name) if name else "settings"
-            raise ImproperlyConfigured(
-                "Requested %s, but settings are not configured. "
-                "You must either define the environment variable %s "
-                "or call settings.configure() before accessing settings."
-                % (desc, ENVIRONMENT_VARIABLE)
-            )
 
-        self._wrapped = Settings(settings_module)
+def _get_backends(return_tuples=False):
+    backends = []
+    for backend_path in settings.AUTHENTICATION_BACKENDS:
+        backend = load_backend(backend_path)
+        backends.append((backend, backend_path) if return_tuples else backend)
+    if not backends:
+        raise ImproperlyConfigured(
+            "No authentication backends have been defined. Does "
+            "AUTHENTICATION_BACKENDS contain anything?"
+        )
+    return backends
 
-    def __repr__(self):
-        # Hardcode the class name as otherwise it yields 'Settings'.
-        if self._wrapped is empty:
-            return "<LazySettings [Unevaluated]>"
-        return '<LazySettings "%(settings_module)s">' % {
-            "settings_module": self._wrapped.SETTINGS_MODULE,
-        }
 
-    def __getattr__(self, name):
-        """Return the value of a setting and cache it in self.__dict__."""
-        if (_wrapped := self._wrapped) is empty:
-            self._setup(name)
-            _wrapped = self._wrapped
-        val = getattr(_wrapped, name)
+def get_backends():
+    return _get_backends(return_tuples=False)
 
-        # Special case some settings which require further modification.
-        # This is done here for performance reasons so the modified value is
-        # cached.
-        if name in {"MEDIA_URL", "STATIC_URL"} and val is not None:
-            val = self._add_script_prefix(val)
-        elif name == "SECRET_KEY" and not val:
-            raise ImproperlyConfigured("The SECRET_KEY setting must not be empty.")
 
-        self.__dict__[name] = val
-        return val
+def _get_compatible_backends(request, **credentials):
+    for backend, backend_path in _get_backends(return_tuples=True):
+        backend_signature = signature(backend.authenticate)
+        try:
+            backend_signature.bind(request, **credentials)
+        except TypeError:
+            # This backend doesn't accept these credentials as arguments. Try
+            # the next one.
+            continue
+        yield backend, backend_path
 
-    def __setattr__(self, name, value):
-        """
-        Set the value of setting. Clear all cached values if _wrapped changes
-        (@override_settings does this) or clear single values when set.
-        """
-        if name == "_wrapped":
-            self.__dict__.clear()
+
+def _get_backend_from_user(user, backend=None):
+    try:
+        backend = backend or user.backend
+    except AttributeError:
+        backends = _get_backends(return_tuples=True)
+        if len(backends) == 1:
+            _, backend = backends[0]
         else:
-            self.__dict__.pop(name, None)
-        super().__setattr__(name, value)
-
-    def __delattr__(self, name):
-        """Delete a setting and clear it from cache if needed."""
-        super().__delattr__(name)
-        self.__dict__.pop(name, None)
-
-    def configure(self, default_settings=global_settings, **options):
-        """
-        Called to manually configure the settings. The 'default_settings'
-        parameter sets where to retrieve any unspecified values from (its
-        argument must support attribute access (__getattr__)).
-        """
-        if self._wrapped is not empty:
-            raise RuntimeError("Settings already configured.")
-        holder = UserSettingsHolder(default_settings)
-        for name, value in options.items():
-            if not name.isupper():
-                raise TypeError("Setting %r must be uppercase." % name)
-            setattr(holder, name, value)
-        self._wrapped = holder
-
-    @staticmethod
-    def _add_script_prefix(value):
-        """
-        Add SCRIPT_NAME prefix to relative paths.
-
-        Useful when the app is being served at a subpath and manually prefixing
-        subpath to STATIC_URL and MEDIA_URL in settings is inconvenient.
-        """
-        # Don't apply prefix to absolute paths and URLs.
-        if value.startswith(("http://", "https://", "/")):
-            return value
-        from django.urls import get_script_prefix
-
-        return "%s%s" % (get_script_prefix(), value)
-
-    @property
-    def configured(self):
-        """Return True if the settings have already been configured."""
-        return self._wrapped is not empty
-
-    def _show_deprecation_warning(self, message, category):
-        stack = traceback.extract_stack()
-        # Show a warning if the setting is used outside of Django.
-        # Stack index: -1 this line, -2 the property, -3 the
-        # LazyObject __getattribute__(), -4 the caller.
-        filename, _, _, _ = stack[-4]
-        if not filename.startswith(os.path.dirname(django.__file__)):
-            warnings.warn(message, category, stacklevel=2)
+            raise ValueError(
+                "You have multiple authentication backends configured and "
+                "therefore must provide the `backend` argument or set the "
+                "`backend` attribute on the user."
+            )
+    else:
+        if not isinstance(backend, str):
+            raise TypeError(
+                "backend must be a dotted import path string (got %r)." % backend
+            )
+    return backend
 
 
-class Settings:
-    def __init__(self, settings_module):
-        # update this dict from global settings (but only for ALL_CAPS
-        # settings)
-        for setting in dir(global_settings):
-            if setting.isupper():
-                setattr(self, setting, getattr(global_settings, setting))
+@sensitive_variables("credentials")
+def _clean_credentials(credentials):
+    """
+    Clean a dictionary of credentials of potentially sensitive info before
+    sending to less secure functions.
 
-        # store the settings module in case someone later cares
-        self.SETTINGS_MODULE = settings_module
+    Not comprehensive - intended for user_login_failed signal
+    """
+    SENSITIVE_CREDENTIALS = re.compile("api|token|key|secret|password|signature", re.I)
+    CLEANSED_SUBSTITUTE = "********************"
+    for key in credentials:
+        if SENSITIVE_CREDENTIALS.search(key):
+            credentials[key] = CLEANSED_SUBSTITUTE
+    return credentials
 
-        mod = importlib.import_module(self.SETTINGS_MODULE)
 
-        tuple_settings = (
-            "ALLOWED_HOSTS",
-            "INSTALLED_APPS",
-            "TEMPLATE_DIRS",
-            "LOCALE_PATHS",
-            "SECRET_KEY_FALLBACKS",
+def _get_user_session_key(request):
+    # This value in the session is always serialized to a string, so we need
+    # to convert it back to Python whenever we access it.
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+
+
+async def _aget_user_session_key(request):
+    # This value in the session is always serialized to a string, so we need
+    # to convert it back to Python whenever we access it.
+    session_key = await request.session.aget(SESSION_KEY)
+    if session_key is None:
+        raise KeyError()
+    return get_user_model()._meta.pk.to_python(session_key)
+
+
+@sensitive_variables("credentials")
+def authenticate(request=None, **credentials):
+    """
+    If the given credentials are valid, return a User object.
+    """
+    for backend, backend_path in _get_compatible_backends(request, **credentials):
+        try:
+            user = backend.authenticate(request, **credentials)
+        except PermissionDenied:
+            # This backend says to stop in our tracks - this user should not be
+            # allowed in at all.
+            break
+        if user is None:
+            continue
+        # Annotate the user object with the path of the backend.
+        user.backend = backend_path
+        return user
+
+    # The credentials supplied are invalid to all backends, fire signal
+    user_login_failed.send(
+        sender=__name__, credentials=_clean_credentials(credentials), request=request
+    )
+
+
+@sensitive_variables("credentials")
+async def aauthenticate(request=None, **credentials):
+    """See authenticate()."""
+    for backend, backend_path in _get_compatible_backends(request, **credentials):
+        try:
+            user = await backend.aauthenticate(request, **credentials)
+        except PermissionDenied:
+            # This backend says to stop in our tracks - this user should not be
+            # allowed in at all.
+            break
+        if user is None:
+            continue
+        # Annotate the user object with the path of the backend.
+        user.backend = backend_path
+        return user
+
+    # The credentials supplied are invalid to all backends, fire signal.
+    await user_login_failed.asend(
+        sender=__name__, credentials=_clean_credentials(credentials), request=request
+    )
+
+
+def login(request, user, backend=None):
+    """
+    Persist a user id and a backend in the request. This way a user doesn't
+    have to reauthenticate on every request. Note that data set during
+    the anonymous session is retained when the user logs in.
+    """
+    # RemovedInDjango61Warning: When the deprecation ends, replace with:
+    # session_auth_hash = user.get_session_auth_hash()
+    session_auth_hash = ""
+    # RemovedInDjango61Warning.
+    if user is None:
+        user = request.user
+        warnings.warn(
+            "Fallback to request.user when user is None will be removed.",
+            RemovedInDjango61Warning,
+            stacklevel=2,
         )
-        self._explicit_settings = set()
-        for setting in dir(mod):
-            if setting.isupper():
-                setting_value = getattr(mod, setting)
 
-                if setting in tuple_settings and not isinstance(
-                    setting_value, (list, tuple)
-                ):
-                    raise ImproperlyConfigured(
-                        "The %s setting must be a list or a tuple." % setting
+    # RemovedInDjango61Warning.
+    if hasattr(user, "get_session_auth_hash"):
+        session_auth_hash = user.get_session_auth_hash()
+
+    if SESSION_KEY in request.session:
+        if _get_user_session_key(request) != user.pk or (
+            session_auth_hash
+            and not constant_time_compare(
+                request.session.get(HASH_SESSION_KEY, ""), session_auth_hash
+            )
+        ):
+            # To avoid reusing another user's session, create a new, empty
+            # session if the existing session corresponds to a different
+            # authenticated user.
+            request.session.flush()
+    else:
+        request.session.cycle_key()
+
+    backend = _get_backend_from_user(user=user, backend=backend)
+
+    request.session[SESSION_KEY] = user._meta.pk.value_to_string(user)
+    request.session[BACKEND_SESSION_KEY] = backend
+    request.session[HASH_SESSION_KEY] = session_auth_hash
+    if hasattr(request, "user"):
+        request.user = user
+    rotate_token(request)
+    user_logged_in.send(sender=user.__class__, request=request, user=user)
+
+
+async def alogin(request, user, backend=None):
+    """See login()."""
+    # RemovedInDjango61Warning: When the deprecation ends, replace with:
+    # session_auth_hash = user.get_session_auth_hash()
+    session_auth_hash = ""
+    # RemovedInDjango61Warning.
+    if user is None:
+        warnings.warn(
+            "Fallback to request.auser() when user is None will be removed.",
+            RemovedInDjango61Warning,
+            stacklevel=2,
+        )
+        user = await request.auser()
+    # RemovedInDjango61Warning.
+    if hasattr(user, "get_session_auth_hash"):
+        session_auth_hash = user.get_session_auth_hash()
+
+    if await request.session.ahas_key(SESSION_KEY):
+        if await _aget_user_session_key(request) != user.pk or (
+            session_auth_hash
+            and not constant_time_compare(
+                await request.session.aget(HASH_SESSION_KEY, ""),
+                session_auth_hash,
+            )
+        ):
+            # To avoid reusing another user's session, create a new, empty
+            # session if the existing session corresponds to a different
+            # authenticated user.
+            await request.session.aflush()
+    else:
+        await request.session.acycle_key()
+
+    backend = _get_backend_from_user(user=user, backend=backend)
+
+    await request.session.aset(SESSION_KEY, user._meta.pk.value_to_string(user))
+    await request.session.aset(BACKEND_SESSION_KEY, backend)
+    await request.session.aset(HASH_SESSION_KEY, session_auth_hash)
+    if hasattr(request, "user"):
+        request.user = user
+    if hasattr(request, "auser"):
+
+        async def auser():
+            return user
+
+        request.auser = auser
+    rotate_token(request)
+    await user_logged_in.asend(sender=user.__class__, request=request, user=user)
+
+
+def logout(request):
+    """
+    Remove the authenticated user's ID from the request and flush their session
+    data.
+    """
+    # Dispatch the signal before the user is logged out so the receivers have a
+    # chance to find out *who* logged out.
+    user = getattr(request, "user", None)
+    if not getattr(user, "is_authenticated", True):
+        user = None
+    user_logged_out.send(sender=user.__class__, request=request, user=user)
+    request.session.flush()
+    if hasattr(request, "user"):
+        from django.contrib.auth.models import AnonymousUser
+
+        request.user = AnonymousUser()
+
+
+async def alogout(request):
+    """See logout()."""
+    # Dispatch the signal before the user is logged out so the receivers have a
+    # chance to find out *who* logged out.
+    user = getattr(request, "auser", None)
+    if user is not None:
+        user = await user()
+        if not getattr(user, "is_authenticated", True):
+            user = None
+    await user_logged_out.asend(sender=user.__class__, request=request, user=user)
+    await request.session.aflush()
+
+    has_user = hasattr(request, "user")
+    has_auser = hasattr(request, "auser")
+    if has_user or has_auser:
+        from django.contrib.auth.models import AnonymousUser
+
+        anon = AnonymousUser()
+        if has_user:
+            request.user = anon
+        if has_auser:
+
+            async def auser():
+                return anon
+
+            request.auser = auser
+
+
+def get_user_model():
+    """
+    Return the User model that is active in this project.
+    """
+    try:
+        return django_apps.get_model(settings.AUTH_USER_MODEL, require_ready=False)
+    except ValueError:
+        raise ImproperlyConfigured(
+            "AUTH_USER_MODEL must be of the form 'app_label.model_name'"
+        )
+    except LookupError:
+        raise ImproperlyConfigured(
+            "AUTH_USER_MODEL refers to model '%s' that has not been installed"
+            % settings.AUTH_USER_MODEL
+        )
+
+
+def get_user(request):
+    """
+    Return the user model instance associated with the given request session.
+    If no user is retrieved, return an instance of `AnonymousUser`.
+    """
+    from .models import AnonymousUser
+
+    user = None
+    try:
+        user_id = _get_user_session_key(request)
+        backend_path = request.session[BACKEND_SESSION_KEY]
+    except KeyError:
+        pass
+    else:
+        if backend_path in settings.AUTHENTICATION_BACKENDS:
+            backend = load_backend(backend_path)
+            user = backend.get_user(user_id)
+            # Verify the session
+            if hasattr(user, "get_session_auth_hash"):
+                session_hash = request.session.get(HASH_SESSION_KEY)
+                if not session_hash:
+                    session_hash_verified = False
+                else:
+                    session_auth_hash = user.get_session_auth_hash()
+                    session_hash_verified = constant_time_compare(
+                        session_hash, session_auth_hash
                     )
-                setattr(self, setting, setting_value)
-                self._explicit_settings.add(setting)
+                if not session_hash_verified:
+                    # If the current secret does not verify the session, try
+                    # with the fallback secrets and stop when a matching one is
+                    # found.
+                    if session_hash and any(
+                        constant_time_compare(session_hash, fallback_auth_hash)
+                        for fallback_auth_hash in user.get_session_auth_fallback_hash()
+                    ):
+                        request.session.cycle_key()
+                        request.session[HASH_SESSION_KEY] = session_auth_hash
+                    else:
+                        request.session.flush()
+                        user = None
 
-        if hasattr(time, "tzset") and self.TIME_ZONE:
-            # When we can, attempt to validate the timezone. If we can't find
-            # this file, no check happens and it's harmless.
-            zoneinfo_root = Path("/usr/share/zoneinfo")
-            zone_info_file = zoneinfo_root.joinpath(*self.TIME_ZONE.split("/"))
-            if zoneinfo_root.exists() and not zone_info_file.exists():
-                raise ValueError("Incorrect timezone setting: %s" % self.TIME_ZONE)
-            # Move the time zone info into os.environ. See ticket #2315 for why
-            # we don't do this unconditionally (breaks Windows).
-            os.environ["TZ"] = self.TIME_ZONE
-            time.tzset()
-
-    def is_overridden(self, setting):
-        return setting in self._explicit_settings
-
-    def __repr__(self):
-        return '<%(cls)s "%(settings_module)s">' % {
-            "cls": self.__class__.__name__,
-            "settings_module": self.SETTINGS_MODULE,
-        }
+    return user or AnonymousUser()
 
 
-class UserSettingsHolder:
-    """Holder for user configured settings."""
+async def aget_user(request):
+    """See get_user()."""
+    from .models import AnonymousUser
 
-    # SETTINGS_MODULE doesn't make much sense in the manually configured
-    # (standalone) case.
-    SETTINGS_MODULE = None
+    user = None
+    try:
+        user_id = await _aget_user_session_key(request)
+        backend_path = await request.session.aget(BACKEND_SESSION_KEY)
+    except KeyError:
+        pass
+    else:
+        if backend_path in settings.AUTHENTICATION_BACKENDS:
+            backend = load_backend(backend_path)
+            user = await backend.aget_user(user_id)
+            # Verify the session
+            if hasattr(user, "get_session_auth_hash"):
+                session_hash = await request.session.aget(HASH_SESSION_KEY)
+                if not session_hash:
+                    session_hash_verified = False
+                else:
+                    session_auth_hash = user.get_session_auth_hash()
+                    session_hash_verified = constant_time_compare(
+                        session_hash, session_auth_hash
+                    )
+                if not session_hash_verified:
+                    # If the current secret does not verify the session, try
+                    # with the fallback secrets and stop when a matching one is
+                    # found.
+                    if session_hash and any(
+                        constant_time_compare(session_hash, fallback_auth_hash)
+                        for fallback_auth_hash in user.get_session_auth_fallback_hash()
+                    ):
+                        await request.session.acycle_key()
+                        await request.session.aset(HASH_SESSION_KEY, session_auth_hash)
+                    else:
+                        await request.session.aflush()
+                        user = None
 
-    def __init__(self, default_settings):
-        """
-        Requests for configuration variables not in this class are satisfied
-        from the module specified in default_settings (if possible).
-        """
-        self.__dict__["_deleted"] = set()
-        self.default_settings = default_settings
-
-    def __getattr__(self, name):
-        if not name.isupper() or name in self._deleted:
-            raise AttributeError
-        return getattr(self.default_settings, name)
-
-    def __setattr__(self, name, value):
-        self._deleted.discard(name)
-        super().__setattr__(name, value)
-
-    def __delattr__(self, name):
-        self._deleted.add(name)
-        if hasattr(self, name):
-            super().__delattr__(name)
-
-    def __dir__(self):
-        return sorted(
-            s
-            for s in [*self.__dict__, *dir(self.default_settings)]
-            if s not in self._deleted
-        )
-
-    def is_overridden(self, setting):
-        deleted = setting in self._deleted
-        set_locally = setting in self.__dict__
-        set_on_default = getattr(
-            self.default_settings, "is_overridden", lambda s: False
-        )(setting)
-        return deleted or set_locally or set_on_default
-
-    def __repr__(self):
-        return "<%(cls)s>" % {
-            "cls": self.__class__.__name__,
-        }
+    return user or AnonymousUser()
 
 
-settings = LazySettings()
+def get_permission_codename(action, opts):
+    """
+    Return the codename of the permission for the specified action.
+    """
+    return "%s_%s" % (action, opts.model_name)
+
+
+def update_session_auth_hash(request, user):
+    """
+    Updating a user's password logs out all sessions for the user.
+
+    Take the current request and the updated user object from which the new
+    session hash will be derived and update the session hash appropriately to
+    prevent a password change from logging out the session from which the
+    password was changed.
+    """
+    request.session.cycle_key()
+    if hasattr(user, "get_session_auth_hash") and request.user == user:
+        request.session[HASH_SESSION_KEY] = user.get_session_auth_hash()
+
+
+async def aupdate_session_auth_hash(request, user):
+    """See update_session_auth_hash()."""
+    await request.session.acycle_key()
+    if hasattr(user, "get_session_auth_hash") and await request.auser() == user:
+        await request.session.aset(HASH_SESSION_KEY, user.get_session_auth_hash())
