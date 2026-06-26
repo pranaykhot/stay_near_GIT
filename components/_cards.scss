@@ -1,14 +1,21 @@
 /* Cards */
 
 .card {
-  border: none;
   box-shadow: $card-box-shadow;
   -webkit-box-shadow: $card-box-shadow;
   -moz-box-shadow: $card-box-shadow;
   -ms-box-shadow: $card-box-shadow;
+  transition:background $action-transition-duration $action-transition-timing-function;
+  -webkit-transition:background $action-transition-duration $action-transition-timing-function;
+  -moz-transition:background $action-transition-duration $action-transition-timing-function;
+  -ms-transition:background $action-transition-duration $action-transition-timing-function;
   &.tale-bg {
     background: #DAE7FF;
   }
+  &.transparent {
+    background: transparent;
+  }
+  border: none;
   .card-body {
     padding: $card-padding-y $card-padding-x;
     + .card-body {
@@ -16,7 +23,7 @@
     }
   }
   .card-title {
-    color: $body-color;
+    color: $card-title-color;
     margin-bottom: 1.2rem;
     text-transform: capitalize;
     font-size: 1.125rem;

@@ -2,7 +2,7 @@
 
 .context-menu-icon {
   &:before {
-    color: $body-color;
+    color: $black;
     font: normal normal normal 15px/1 "themify";
   }
   &.context-menu-icon-cut {
@@ -37,24 +37,19 @@
   }
 }
 .context-menu-list {
-  background: $card-bg;
   box-shadow: none;
   border: 1px solid $border-color;
   .context-menu-item {
-    background: $card-bg;
     span {
-      color: $body-color;
+      color: $black;
       font-size: .75rem;
       font-weight: 600;
     }
     &.context-menu-hover {
-      background: rgba($white, .3);
+      background: $black;
       span {
         color: $white;
       }
     }
-  }
-  .context-menu-separator {
-    border-bottom: 1px solid $border-color;
   }
 }

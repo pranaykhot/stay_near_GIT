@@ -3,12 +3,6 @@
 .note-editor{
   &.note-frame {
     border: 1px solid $border-color;
-    .note-editing-area {
-      .note-editable {
-        background: transparent;
-        color: $input-color;
-      }
-    }
   }
 }
 .note-popover {

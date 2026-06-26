@@ -73,8 +73,12 @@
 	.popover-header {
 		font-size: .9375rem;
 		border-bottom: 0;
-		color: $popover-header-color;
+		background: $white;
+		color: inherit;
 		border-bottom: 1px solid $popover-border-color;
+	}
+	.popover-body {
+		color: $text-muted;
 	}
 	&.left {
 		.arrow {

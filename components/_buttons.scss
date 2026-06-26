@@ -4,6 +4,7 @@
   font-size: $btn-font-size;
   line-height: 1;
   font-weight: 400;
+  border-radius:15px;
   i {
     font-size: 1rem;
   }
@@ -12,6 +13,7 @@
   }
   &.btn-sm {
     font-size: $btn-font-size-sm;
+    border-radius:15px;
   }
   &.btn-lg {
     font-size: $btn-font-size-lg;
@@ -40,6 +42,11 @@
     width: 50px;
     height: 50px;
     padding: 0;
+  }
+  &:focus,
+  &:active {
+    outline: 0;
+    box-shadow: none;
   }
 }
 
@@ -74,6 +81,7 @@
   }
 }
 
-.btn-outline-dark {
-  border-color: #424351;
+.btn-outline-light {
+  color: #6c7383;
+  border-color: #e3e3e3;
 }

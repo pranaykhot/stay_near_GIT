@@ -3,7 +3,6 @@
 .dropzone {
   border: 1px solid $border-color;
   min-height: 200px;
-  background: $content-bg;
   .dz-message {
     text-align: center;
     width: 100%;
@@ -14,9 +13,6 @@
   }
   .dz-preview {
     margin: 5px;
-    &.dz-image-preview {
-      background: $content-bg;
-    }
     .dz-image {
       width: 75px;
       height: 75px;

@@ -40,10 +40,9 @@
       @extend .justify-content-start;
       font-size: .9375rem;
       padding: 1.063rem 1.4rem;
-      border: none;
+      border: 1px solid $border-color;
       margin-bottom: 0.812rem;
       border-radius: 7px;
-      background: $table-accent-bg;
       .form-check{
         @extend %ellipsor;
         max-width: 90%;
@@ -84,5 +83,8 @@
     .remove {
       @extend .text-primary;
     }
+  }
+  &.list-wrapper-sm {
+    height: 320px;
   }
 }

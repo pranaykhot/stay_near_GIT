@@ -8,7 +8,7 @@
     background-image: none;
     text-shadow: none;
     font-weight: 400;
-    background-color: theme-color(dark);
+    background-color: $white;
     border-color: $border-color;
     text-transform: capitalize;
     color: $fullcalendar-color;
@@ -33,7 +33,7 @@
   .fc-button-group {
     @extend .btn-group;
     .fc-button {
-      background-color: theme-color(dark);
+      background-color: $white;
       margin: 0;
       &.fc-state-active {
         color: theme-color(danger);        
@@ -79,6 +79,9 @@
           border-width: 0 0 1px 0;
           text-align: right;
           padding: 1rem;
+          @media (max-width: 767px) {
+            padding: 1rem .25rem;
+          }
           span {
             font-size: 10px;
             text-transform: uppercase;
@@ -87,12 +90,6 @@
           }
         }
       }
-    }
-  }
-  &.fc-unthemed {
-    .fc-row,
-    td {
-      border-color: $border-color;
     }
   }
   .fc-content-skeleton {
@@ -133,8 +130,8 @@
 
 .fc-external-events {
   .fc-event {
-    background: $card-bg;
-    color: $body-color;
+    background: $white;
+    color: $black;
     border-width: 0 0 0 4px;
     padding: 16px;
     border-radius: 0;

@@ -51,7 +51,7 @@
         &:after{
           border-top: 21px solid transparent;
           border-bottom: 22px solid transparent;
-          border-left: 12px solid $border-color;
+          border-left: 12px solid $white;
           top: -9px;
           right: -23px;
         }
@@ -61,6 +61,9 @@
         vertical-align: top;
       }
       &.active {}
+       & > .breadcrumb-item {
+        padding-right: 0;
+      }
     }
   }
 

@@ -41,16 +41,18 @@
         &:before,
         &:after {
           line-height: 2.5;
-          font-family: 'themify';
+          font-family: themify;
           font-size: .65rem;
         }
         &:before {
-          content: "\e627";
+          content: "\e64b";
           right: 1.2em;
+          bottom: 0;
         }
         &:after {
-          content: "\e62a";
-          right: 0.2em;
+          content: "\e648";
+          right: 1.2em;
+          top: 0;
         }
       }
     }
@@ -86,15 +88,8 @@
   tr {
     &.odd,
     &.even {
-      box-shadow: 0px 0px 8px rgba(12, 12, 14, 1);
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.03);
       border-radius: 4px;
-      background: $table-accent-bg;
-      td {
-
-      &:first-child {
-        padding-left: 40px;
-      }
-      }
     }
     td {
       &.select-checkbox{
@@ -161,17 +156,6 @@
           font-family: "themify";
         }
       }
-      &:first-child {
-        padding-left: 10px;
-        background:$table-accent-bg;
-      }
-      &.details-control {
-        cursor: pointer;
-      }
-      &.row-bg {
-        background:$card-bg;
-        border-radius: 10px;
-      }
     }
     &.shown {
       td {
@@ -182,21 +166,19 @@
         }
       }
     }
-    &.expanded-row {
-      background: $card-bg;
-    }
+  }
+  .expanded-row {
+    background: #fafafa;
   }
 }
 table {
   &.dataTable {
-  border-collapse: separate;
-  border-spacing: 0 2px;
     tbody {
       td{
         &.select-checkbox {
           &:before { 
             top: 1.4rem;
-            left: 20px;
+            left: 10px;
             border: 1px solid $border-color;
             width: 14px;
             height: 14px;

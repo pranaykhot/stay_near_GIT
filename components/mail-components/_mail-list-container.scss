@@ -2,7 +2,6 @@
 
 .email-wrapper {
 	.mail-list-container {
-		background: $card-bg;
 		border-left: 1px solid $border-color;
 		height: 100%;
 		padding-left: 0;
@@ -74,7 +73,7 @@
 			}
 
 			&.new_mail {
-				background: rgba($white, .2);
+				background: color(gray-lightest);
 
 				.details {
 					.date {

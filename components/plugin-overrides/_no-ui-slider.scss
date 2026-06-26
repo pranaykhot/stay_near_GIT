@@ -20,7 +20,7 @@
   }
 
   .noUi-base {
-    background: $noui-base-bg;
+    background: color(gray-lightest);
     box-shadow: none;
     border: none;
 
@@ -41,7 +41,6 @@
         top: -7px;
         outline: none;
         @include transition-duration(0.4s);
-        box-shadow: none;
 
         &:after,
         &:before {
@@ -59,7 +58,7 @@
           background: theme-color(primary);
           @include border-radius(100%);
         }
-        .noUi-tooltip {
+        .noUi-tooltip{
           font-weight: 600;
           @include border-radius(4px);
           border: none;
@@ -68,25 +67,24 @@
           padding: 13px 12px;
           bottom: 190%;
         }
+        &.noUi-active {}
       }
     }
   }
-  .noUi-pips {
-    .noUi-marker-horizontal,
-    .noUi-marker-vertical {
+  .noUi-pips{
+    .noUi-marker-horizontal,.noUi-marker-vertical{
       background: $border-color;
     }
-    .noUi-marker-horizontal {
+    .noUi-marker-horizontal{
       height: 9px;
       width: 1px;
-      background: $body-color;
     }
-    .noUi-marker-vertical {
+    .noUi-marker-vertical{
       height: 1px;
       width: 9px;
     }
-    .noUi-value {
-      color: $body-color;
+    .noUi-value{
+      color: $black;
       font-size: 0.94rem;
       font-weight: 600;
     }
