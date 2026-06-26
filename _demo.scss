@@ -172,45 +172,6 @@
   }
 }
 
-.chartjs-legend {
-  ul {
-    margin-bottom: 0;
-    list-style: none;
-    padding-left: 0;
-    @include display-flex;
-    @include flex-direction(column);
-    @include flex-wrap(wrap);
-    li {
-      @include display-flex;
-      @include align-items(center);
-      span {
-        width: 2.25rem;
-        height: 1rem;
-        margin-right: .4rem;
-        display: inline-block;
-        font-size: $default-font-size;
-      }
-    }
-  }
-  .rtl & {
-    ul {
-      padding-right: 0;
-      li {
-        margin-right: 0;
-        margin-left: 8%;
-        span {
-          margin-right: 0;
-          margin-left: 1rem;
-        }
-      }
-    }
-  }
-  &.analytics-legend {
-    ul {
-      padding-left: 0;
-    }
-  }
-}
 
 .documentation {
   padding-top: 0;
@@ -355,7 +316,7 @@
         top: 1.3rem;
         width: 1.875rem;
         height: 1.875rem;
-        border: 1px solid $border-color;
+        background: #ecedf2;
         border-radius: 0.375rem;
         opacity: 1;
         &:hover {
@@ -399,6 +360,35 @@
     background: transparent;
     .progress-bar {
       border-radius: 11px;
+    }
+  }
+}
+
+.show {
+  > .btn-out-line-light {
+    .dropdown-toggle {
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+}
+.navbar-brand {
+  &.landing {
+    img {
+      height: 34px;
+    }
+  }
+}
+.landing-effect {
+  overflow: hidden;
+  box-shadow: 0px 0px 5px 1px rgba(222,222,222,0.75);
+  img {
+    transition: transform .5s;
+  }
+  &:hover {
+    img {
+      transform: scale(1.1);
     }
   }
 }

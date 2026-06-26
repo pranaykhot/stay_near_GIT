@@ -13,7 +13,7 @@ $teal:              #58d8a3;
 $cyan:              #57c7d4;
 $black:             #000;
 $white:             #ffffff;
-$white-smoke:       #f2f7f8; 
+$white-smoke:       #f2f7f8;
 $violet:            #41478a;
 $darkslategray :    #2e383e;
 $dodger-blue :      #3498db;
@@ -35,7 +35,7 @@ $colors: (
   gray-light:       #aab2bd,
   gray-lighter:     #e8eff4,
   gray-lightest:    #e6e9ed,
-  gray-dark:        #0f1531,
+  gray-dark:        #0f1531, 
   black:            #000000
 );
 
@@ -62,12 +62,11 @@ $theme-gradient-colors: (
   dark:            linear-gradient(to right, #7d7979 0%, #000000 100%)
 );
 
-
 ////////// COLOR SYSTEM //////////
 
 ////////// COLOR VARIABLES //////////
-$content-bg: #151419;
-$border-color: #575757;
+$content-bg: #F5F7FF;
+$border-color: #CED4DA;
 $border-radius: 8px;
 
 ////////// COLOR VARIABLES //////////
@@ -77,10 +76,10 @@ $border-radius: 8px;
 ////////// SOCIAL COLORS //////////
 
 $social-colors: (
-  twitter: #2caae1,
-  facebook: #3b579d,
+  twitter: #4747A1,
+  facebook: #7DA0FA,
   google: #dc4a38,
-  linkedin: #0177b5,
+  linkedin: #7978E9,
   pinterest: #cc2127,
   youtube: #e52d27,
   github: #333333,
@@ -97,10 +96,10 @@ $type1:     'Nunito', sans-serif;
 
 $default-font-size: .875rem; // 14px as base font size
 
-$text-muted: #9c9fa6;
-$body-color: #fff;
-
+$text-muted: #737F8B;
+$body-color: #1F1F1F;
 $color-light-blue: #52C4FF;
+
 
 ////////// FONT VARIABLES //////////
 
@@ -128,7 +127,7 @@ $btn-padding-x-lg:    3rem;
 
 $btn-font-size:       .875rem;
 $btn-font-size-xs:    .625rem;
-$btn-font-size-sm:    .875rem;
+$btn-font-size-sm:    0.812rem;
 $btn-font-size-lg:    .875rem;
 
 $btn-border-radius:         .1875rem;
@@ -150,25 +149,14 @@ $tooltip-border-radius: .375rem;
 
 ////////// TOOLTIP VARIABLES //////////
 
-////////// POPOVER ///////////////
-$popover-bg: #636877;
-$popover-header-bg: $popover-bg;
-$popover-header-color: $black;
-$popover-body-color: $black;
-$popover-arrow-color: $popover-bg;
-////////// POPOVER ///////////////
-
 
 
 /////////  FORMS /////////
 
-$input-bg:                #2b2e4c;
-$input-focus-bg:          $input-bg;
+$input-bg:                color(white);
 $input-border-radius:     2px;
-$input-placeholder-color: #aaa7a7;
-$input-color:             #e9e6e6;
-$input-focus-color:       $input-color;
-$input-font-size:         .875rem;
+$input-placeholder-color: #c9c8c8;
+$input-font-size: .875rem;
 
 $input-padding-y:       .875rem;
 $input-padding-x:       1.375rem;
@@ -189,17 +177,25 @@ $input-height-lg:       3.175rem;
 
 ///////// FORMS /////////
 
+////////  DROPDOWNS ///////
+
+$dropdown-border-color: $border-color;
+$dropdown-divider-bg:   $border-color;
+$dropdown-link-color:   $body-color;
+$dropdown-header-color: $body-color;
+$dropdown-link-hover-bg: #eaeaf1;
+////////  DROPDOWNS ///////
+
 //////// TABLES ////////
 
-$table-color: $body-color;
-$table-accent-bg: #2A292C;
-$table-hover-bg:  $content-bg;
-$table-cell-padding: 1.25rem .9375rem;
+$table-accent-bg: $content-bg;
+$table-hover-bg:  #eaeaf1;
+$table-cell-padding: 1.125rem 1.375rem;
 $table-border-color: $border-color;
 
 $table-inverse-bg: #2a2b32;
 $table-inverse-color: color(white);
-$expanded-table-cell-color:#fff;
+$expanded-table-cell-color:#0B0F32;
 $alpha-orange:#FE5C83;
 
 //////// TABLES ////////
@@ -209,13 +205,13 @@ $alpha-orange:#FE5C83;
 ////////// MEASUREMENT AND PROPERTY VARIABLES //////////
 
 $border-property: 1px solid $border-color;
-$card-bg: #1f1e23;
-$card-spacing-y: 1.875rem;
+$card-spacing-y: 2.5rem;
 $card-padding-y: 1.25rem;
-$card-padding-x: 1.437rem;
+$card-padding-x: 1.25rem;
 $card-border-radius: 20px;
-$card-border-color: #313452;
-$card-box-shadow: 0 1px 20px 0 rgba(0,0,0,.1);
+$card-border-color: #e3e3e3;
+$card-box-shadow: none;
+$card-title-color: #010101;
 $card-description-color: #76838f;
 $grid-gutter-width: 30px;
 $action-transition-duration: 0.25s;
@@ -226,15 +222,6 @@ $card-light-blue:#7978E9;
 $card-light-danger:#F3797E;
 ////////// OTHER VARIABLES //////////
 
-////////  DROPDOWNS ///////
-
-$dropdown-bg: $card-bg;
-$dropdown-border-color: $border-color;
-$dropdown-divider-bg:   $border-color;
-$dropdown-link-color:   $body-color;
-$dropdown-header-color: $body-color;
-$dropdown-link-hover-bg: theme-color(dark);
-////////  DROPDOWNS ///////
 
 
 ////////// BREAD CRUMBS VARIABLES //////////
@@ -256,8 +243,8 @@ $breadcrumb-custom-padding-y:       0;
 $breadcrumb-custom-padding-x:       0;
 $breadcrumb-custom-item-padding-y:  0.56rem;
 $breadcrumb-custom-item-padding-x:  12px;
-$breadcrumb-custom-item-color:      inherit;
-$breadcrumb-item-bg:                #555b71;
+$breadcrumb-custom-item-color:      $black;
+$breadcrumb-item-bg:                #dbe3e6;
 
 ////////// BREAD CRUMBS VARIABLES //////////
 
@@ -269,7 +256,7 @@ $modal-inner-padding:              0.9375rem;
 $modal-dialog-margin:               10px;
 $modal-dialog-margin-y-sm-up:       30px;
 $modal-title-line-height:           $line-height-base;
-$modal-content-bg:                  #323748;
+$modal-content-bg:                  $white;
 $modal-content-box-shadow-xs:       0 3px 9px rgba($black,.5);
 $modal-content-box-shadow-sm-up:    0 5px 15px rgba($black,.5);
 
@@ -302,12 +289,11 @@ $modal-transition:                  transform .4s ease;
 
 /////////  TABS VARIABLES //////////
 $nav-tabs-border-color:             #ebedf2;
-$nav-tabs-link-bg:                  #292f42;
-$nav-tabs-link-color:               $body-color;
-$nav-tabs-border-color:             $border-color;
-$nav-tabs-link-hover-border-color:  #828494 #828494 #828494;
+$nav-tabs-link-bg:                  #f6f8fa;
+$nav-tabs-link-color:               #000000;
+$nav-tabs-link-hover-border-color:  $nav-tabs-border-color $nav-tabs-border-color $nav-tabs-border-color;
 $nav-tabs-link-active-color:        $body-color;
-$nav-tabs-link-active-bg:           $card-bg;
+$nav-tabs-link-active-bg:           $white;
 $nav-tabs-link-active-border-color: $nav-tabs-border-color $nav-tabs-border-color $nav-tabs-link-active-bg;
 $nav-pills-custom-bg:               #fcfcfd;
 ////////   TABS VARIABLES /////////
@@ -315,16 +301,3 @@ $nav-pills-custom-bg:               #fcfcfd;
 ////////   CALENDAR  //////////////
 $fullcalendar-color: #a8b2b9;
 ////////   CALENDAR  //////////////
-
-////////  PAGINATION //////////////
-$pagination-bg: theme-color(dark);
-$pagination-disabled-bg: #8b8d91;
-////////  PAGINATION //////////////
-
-////////  PROGRESS BAR ///////////
-$progress-bg: #878c9e;
-////////  PROGRESS BAR ///////////
-
-//////// NOUI SLIDER ////////////
-$noui-base-bg: theme-color(dark);
-//////// NOUI SLIDER ////////////

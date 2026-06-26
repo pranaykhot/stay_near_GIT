@@ -1,11 +1,9 @@
 .card-people {
   position: relative;
   padding-top: 20px;
-  color: $black;
   img {
     border-radius:20px;
     width:100%;
-    vertical-align:bottom;
   }
   .weather-info {
     position: absolute;
@@ -18,6 +16,18 @@
       font-size: 20px;
       margin-bottom: 0;
     }
+  }
+}
+.weather-info {
+  position: absolute;
+  top: 30px;
+  right: 24px;
+  sup {
+    font-size: 18px;
+  }
+  .location {
+    font-size: 20px;
+    margin-bottom: 0;
   }
 }
 .fs-30 {

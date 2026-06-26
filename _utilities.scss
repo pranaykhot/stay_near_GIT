@@ -90,7 +90,7 @@
 }
 
 .text-small {
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .flex-grow {
@@ -101,4 +101,7 @@
   &:hover {
     cursor: pointer;
   }
+}
+.min-width-cell {
+  min-width: 110px;
 }
