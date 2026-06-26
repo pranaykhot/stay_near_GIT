@@ -2,17 +2,15 @@
 #
 # Translators:
 # Ali Ismayilov <ali@ismailov.info>, 2011
-# Dimitris Glezos <glezos@transifex.com>, 2012
 # Emin Mastizada <emin@linux.com>, 2018,2020
-# Emin Mastizada <emin@linux.com>, 2015
-# Nijat Mammadov, 2024,2026
+# Nijat Mammadov, 2024
 msgid ""
 msgstr ""
 "Project-Id-Version: django\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-08 17:27+0200\n"
-"PO-Revision-Date: 2026-03-09 19:03+0000\n"
-"Last-Translator: Nijat Mammadov, 2024,2026\n"
+"POT-Creation-Date: 2023-09-18 11:41-0300\n"
+"PO-Revision-Date: 2024-08-07 18:45+0000\n"
+"Last-Translator: Nijat Mammadov, 2024\n"
 "Language-Team: Azerbaijani (http://app.transifex.com/django/django/language/"
 "az/)\n"
 "MIME-Version: 1.0\n"
@@ -21,74 +19,68 @@ msgstr ""
 "Language: az\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Advanced options"
-msgstr "Əlavə imkanlar"
+msgid "GIS"
+msgstr "GIS"
 
-msgid "Flat Pages"
-msgstr "Düz Səhifələr"
-
-msgid "URL"
-msgstr "URL"
+msgid "The base GIS field."
+msgstr "Təməl GIS xanası."
 
 msgid ""
-"Example: “/about/contact/”. Make sure to have leading and trailing slashes."
+"The base Geometry field — maps to the OpenGIS Specification Geometry type."
 msgstr ""
-"Məsələn, “/about/contact/”. Əvvəldə və sondakı çəpəki xəttin olmasına diqqət "
-"edin."
+"Təməl Həndəsə sahəsi — OpenGIS Specification Geometry növünə işarətlənir."
+
+msgid "Point"
+msgstr "Nöqtə"
+
+msgid "Line string"
+msgstr "Xətt"
+
+msgid "Polygon"
+msgstr "Poliqon"
+
+msgid "Multi-point"
+msgstr "Çox nöqtəli"
+
+msgid "Multi-line string"
+msgstr "Xətlər"
+
+msgid "Multi polygon"
+msgstr "Poliqonlar"
+
+msgid "Geometry collection"
+msgstr "Fiqurlar çoxluğu"
+
+msgid "Extent Aggregate Field"
+msgstr "Aqreqat Sahəsini Genişləndir"
+
+msgid "Raster Field"
+msgstr "Rastr Sahəsi"
+
+msgid "No geometry value provided."
+msgstr "Həndəsi qiyməti verilməyib."
+
+msgid "Invalid geometry value."
+msgstr "Həndəsi qiyməti düzgün deyil."
+
+msgid "Invalid geometry type."
+msgstr "Həndəsi tipi düzgün deyil."
 
 msgid ""
-"This value must contain only letters, numbers, dots, underscores, dashes, "
-"slashes or tildes."
+"An error occurred when transforming the geometry to the SRID of the geometry "
+"form field."
 msgstr ""
-"Burada yalnız hərf, rəqəm, nöqtə, altdan xətt, defis, çəpəki xətt və ya "
-"tildadan istifadə etmək olar."
+"Fiquru vərəqənin fiqur sahəsinin SRID qiymətinə çevirərkən xəta baş verdi."
 
-msgid "Example: “/about/contact”. Make sure to have a leading slash."
-msgstr ""
-"Məsələn, “/about/contact”. Əvvəldəki çəpəki xəttin olmasına diqqət edin."
+msgid "Delete all Features"
+msgstr "Bütün Xüsusiyyətləri sil"
 
-msgid "URL is missing a leading slash."
-msgstr "URL əvvəlində əyri xətt əskikdir."
+msgid "Debugging window (serialized value)"
+msgstr "Sazlama pəncərəsi (seriallaşdırılmış dəyər)"
 
-msgid "URL is missing a trailing slash."
-msgstr "Ünvan sonunda əyri xətt əksikdir."
+msgid "No feeds are registered."
+msgstr "Qeyd edilmiş axın yoxdur."
 
 #, python-format
-msgid "Flatpage with url %(url)s already exists for site %(site)s"
-msgstr "%(site)s saytı üçün artıq %(url)s ünvanlı düz səhifə onsuz da var"
-
-msgid "title"
-msgstr "başlıq"
-
-msgid "content"
-msgstr "məzmun"
-
-msgid "enable comments"
-msgstr "şərhlər olsun"
-
-msgid "template name"
-msgstr "şablonun adı"
-
-msgid ""
-"Example: “flatpages/contact_page.html”. If this isn’t provided, the system "
-"will use “flatpages/default.html”."
-msgstr ""
-"Məsələn, “flatpages/contact_page.html”. Əgər təchiz edilməsə, sistem "
-"“flatpages/default.html” işlədəcək."
-
-msgid "registration required"
-msgstr "ancaq qeydiyyatlılar üçün"
-
-msgid "If this is checked, only logged-in users will be able to view the page."
-msgstr ""
-"Əgər bura quş qoysanız, ancaq qeydiyyatdan keçib sayta daxil olmuş "
-"istifadəçilər bu səhifəni görə biləcəklər."
-
-msgid "sites"
-msgstr "saytlar"
-
-msgid "flat page"
-msgstr "düz səhifə"
-
-msgid "flat pages"
-msgstr "düz səhifələr"
+msgid "Slug %r isn’t registered."
+msgstr "%r qısaltması qeyd edilməyib."
